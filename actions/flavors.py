@@ -6,7 +6,7 @@ __all__ = [
 
 
 class Flavors(BaseStackMonkeyAction):
-    def _run(self, role, vpus, memory):
+    def run(self, vpus, memory):
         matching_flavors = []
         flavors = self._get_request(endpoint="flavors")
         for flavor in flavors:
