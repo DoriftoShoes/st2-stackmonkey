@@ -1,0 +1,11 @@
+---
+  name: "get_bid"
+  runner_type: "run-python"
+  description: "Get a bid"
+  enabled: true
+  entry_point: "get_bid.py"
+  parameters:
+    bid_token:
+      type: "string"
+      description: "bid token"
+      required: true
