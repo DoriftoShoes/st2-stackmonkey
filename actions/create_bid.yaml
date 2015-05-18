@@ -1,0 +1,15 @@
+---
+  name: "create_bid"
+  runner_type: "run-python"
+  description: "Create a bid"
+  enabled: true
+  entry_point: "create_bid.py"
+  parameters:
+    flavor:
+      type: "string"
+      description: "Name of flavor"
+      required: true
+    role:
+      type: "string"
+      description: "Role"
+      default: "stackstorm"
