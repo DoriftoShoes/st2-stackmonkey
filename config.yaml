@@ -1,3 +1,3 @@
 ---
 definition:
-  stackstorm: lib/stackstorm.json
+  stackstorm: /opt/stackstorm/packs/stackmonkey/actions/lib/stackstorm.json

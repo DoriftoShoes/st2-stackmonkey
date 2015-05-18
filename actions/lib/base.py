@@ -2,8 +2,9 @@ import requests
 
 from st2actions.runners.pythonrunner import Action
 from requests.adapters import HTTPAdapter
-from requests.packages.urllib3.poolmanager import PoolManager
+from urllib3.poolmanager import PoolManager
 import ssl
+import yaml
 
 class MyAdapter(HTTPAdapter):
     def init_poolmanager(self, connections, maxsize, block):
@@ -32,9 +33,10 @@ class BaseStackMonkeyAction(Action):
         s = requests.Session()
         s.mount('https://', MyAdapter())
         r = s.get(url, verify=False)
-        return r.json()
+        self.logger.info(r.text)
+        return yaml.safe_load(r.text)
 
     def _post_request(self, endpoint, data):
         url = self._build_url(endpoint)
         r = requests.post(url, data=data, verify=False)
-        return r.json()
+        return yaml.safe_load(r.text)
